@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'galeria',
 ]
 
 MIDDLEWARE = [
@@ -52,10 +53,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'setup.urls'
 
-TEMPLATES = [
+TEMPLATES = [ #Parte visual da aplicação
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')], #dIZ Q TDS OS CÓDIGOS HTML FICAM DENTRO DA PASTA TEMPLATES
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -117,6 +118,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+STATICFILES_DIRS = [ #Diretório onde ficarão os arquivos estáticos
+    os.path.join(BASE_DIR,'setup/static')
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR,'static')
+#Raiz de todos os aqrquivos estáticos(caminho absoluto onde o python vai coletar os dados estáticos)
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
